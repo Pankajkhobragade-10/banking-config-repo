@@ -52,5 +52,6 @@ eureka:
      web:
        exposure:
          include: health,info,prometheus
+         kkkkk
              
             
