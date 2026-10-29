@@ -1,1 +1,12 @@
-kbhj
+server:
+  port: 8080
+
+  spring:
+    applocation:
+      name: api-gateway
+
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            jwk-set-url: http://lacalhost:9000/oauth/jwks
