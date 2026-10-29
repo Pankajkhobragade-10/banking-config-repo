@@ -10,3 +10,17 @@ server:
         resourceserver:
           jwt:
             jwk-set-url: http://lacalhost:9000/oauth/jwks
+
+         data:
+           redis:
+             host: localhost
+             port: 6379
+
+          cloud:
+            gateway:
+              default-filters:
+                - name: RequestRateLimiter
+                  args:
+                    redis-rate-limiter.replenish
+             
+            
