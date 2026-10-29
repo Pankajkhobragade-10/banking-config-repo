@@ -38,7 +38,19 @@ server:
                          - Path=/api/transactions/**
                         filters:
                           - StripPrefix=1
+                          - name: CircutBreaker
+                            args:
+                              name: transactionCB
 
-                        
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+ mangement:
+   endpoints:
+     web:
+       exposure:
+         include: health,info,prometheus
              
             
