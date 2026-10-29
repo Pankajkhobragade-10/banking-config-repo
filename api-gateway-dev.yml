@@ -21,6 +21,17 @@ server:
               default-filters:
                 - name: RequestRateLimiter
                   args:
-                    redis-rate-limiter.replenish
+                    redis-rate-limiter.replenishRate: 5
+                    redis-rate-limiter.burstCapacity: 10
+
+                  routes:
+                    -id: account-service
+                     url: Ib://ACCOUNT-SERVICE
+                     predicates:
+                       - Path=/api/accounts/**
+                      filters:
+                        - StripPrefix=1
+
+                        
              
             
