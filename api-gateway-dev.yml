@@ -32,6 +32,13 @@ server:
                       filters:
                         - StripPrefix=1
 
+                     - id: teansaction-service
+                       url: lb://TRANSACTION-SERVICE
+                       predication:
+                         - Path=/api/transactions/**
+                        filters:
+                          - StripPrefix=1
+
                         
              
             
