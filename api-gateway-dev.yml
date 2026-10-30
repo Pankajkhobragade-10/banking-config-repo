@@ -41,6 +41,12 @@ server:
                           - name: CircutBreaker
                             args:
                               name: transactionCB
+                       - id: auth-service
+                         url: lb://AUTH-SERVICE
+                         predicates:
+                           - path=/auth/**, /oauth2/**
+                         filters:
+                           - StripPrefix=1
 
 eureka:
   client:
